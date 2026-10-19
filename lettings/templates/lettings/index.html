@@ -17,15 +17,15 @@
         <div class="col-lg-10">
             <hr class="mb-0" />
             {% if lettings_list %}
-                <ul class="list-group list-group-flush list-group-careers">
-                    {% for letting in lettings_list %}
-                        <li class="list-group-item">
-                            <a href="{% url 'letting' letting_id=letting.id %}">{{ letting.title }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
+            <ul class="list-group list-group-flush list-group-careers">
+                {% for letting in lettings_list %}
+                <li class="list-group-item">
+                    <a href="{% url 'lettings:letting' letting_id=letting.id %}">{{ letting.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
             {% else %}
-                <p>No lettings are available.</p>
+            <p>No lettings are available.</p>
             {% endif %}
         </div>
     </div>
@@ -36,7 +36,7 @@
         <a class="btn fw-500 ms-lg-4 btn-primary px-10" href="{% url 'index' %}">
             Home
         </a>
-        <a class="btn fw-500 ms-lg-4 btn-primary px-10" href="{% url 'profiles_index' %}">
+        <a class="btn fw-500 ms-lg-4 btn-primary px-10" href="{% url 'profiles:index' %}">
             Profiles
         </a>
     </div>
