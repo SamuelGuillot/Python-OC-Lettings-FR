@@ -4,8 +4,8 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('lettings', '0002_copy_data_from_legacy'),
-        ('profiles', '0002_copy_data_from_legacy'),
+        ('lettings', '0002_copy_data'),
+        ('profiles', '0002_copy_data'),
         ('oc_lettings_site', '0001_initial'),
     ]
 
