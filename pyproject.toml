@@ -1,0 +1,29 @@
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "oc_lettings_site.settings"
+python_files = ["tests.py", "test_*.py"]
+addopts = "-v --cov=. --cov-branch --cov-report=term-missing --cov-report=html --cov-fail-under=80"
+
+[tool.coverage.run]
+source = ["."]
+branch = true
+omit = [
+    "*/migrations/*",
+    "*/tests/*",
+    "tests.py",
+    "*/tests.py",
+    "*/__init__.py",
+    "manage.py",
+    "*/wsgi.py",
+    "*/asgi.py",
+    "*/apps.py",
+    "*/settings.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __str__",
+    "def __repr__",
+    "if settings.DEBUG",
+    "raise NotImplementedError",
+]

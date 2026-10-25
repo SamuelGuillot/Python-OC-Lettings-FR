@@ -8,11 +8,9 @@ env/
 .vscode/
 .idea/
 
-# Env
 .env
 .env.*
 
-# Tests
 .pytest_cache/
 .flake8_cache/
 flake8_report.txt
@@ -22,3 +20,5 @@ flake8_report.txt
 *.sqlite3.bak
 *.sqlite3.before-*
 *.sqlite3.2
+
+.coverage
