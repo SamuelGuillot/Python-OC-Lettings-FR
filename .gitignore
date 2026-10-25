@@ -1,15 +1,24 @@
 
-*.sqlite3
-*.sqlite3.bak
-*.sqlite3.before-*
-
 __pycache__/
-*.py[cod]
+*.pyc
 
 venv/
 env/
 
+.vscode/
+.idea/
+
+# Env
 .env
 .env.*
 
+# Tests
+.pytest_cache/
+.flake8_cache/
 flake8_report.txt
+
+
+*.sqlite3
+*.sqlite3.bak
+*.sqlite3.before-*
+*.sqlite3.2
