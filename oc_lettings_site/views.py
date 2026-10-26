@@ -14,7 +14,6 @@ def index(request):
     return render(request, 'index.html')
 
 
-def sentry_debug(request):
+def sentry_debug(request):  # pragma: no cove
     """debug volontaire"""
     1 / 0   # ZeroDivisionError
-

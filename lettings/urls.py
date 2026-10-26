@@ -1,12 +1,10 @@
-from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
 
 from . import views
 
+app_name = 'lettings'
+
 urlpatterns = [
     path('', views.index, name='index'),
-    path('lettings/', include('lettings.urls')),
-    path('profiles/', include('profiles.urls')),
-    path('admin/', admin.site.urls),
-    path('sentry-debug/', views.sentry_debug, name='sentry-debug'),
+    path('<int:letting_id>/', views.letting, name='letting'),
 ]
