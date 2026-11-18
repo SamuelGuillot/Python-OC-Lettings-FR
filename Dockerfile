@@ -24,11 +24,12 @@ COPY . .
 # RUN chmod +x build.sh
 # RUN ./build.sh
 
+RUN python manage.py collectstatic --noinput
+
 # Utilisateur non-root
 RUN useradd -m appuser && chown -R appuser:appuser /app
 USER appuser
 
 EXPOSE 8000
 
-# Le CMD ne fait plus que lancer gunicorn (les migrations sont déjà faites)
 CMD ["gunicorn", "oc_lettings_site.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
