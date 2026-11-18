@@ -4,8 +4,13 @@ from django.urls import reverse
 
 @pytest.mark.django_db
 def test_home_page(client):
-    url = reverse('index')
+    url = reverse("index")
     response = client.get(url)
 
     assert response.status_code == 200
-    assert '<title>Holiday Homes</title>' in response.content.decode()
+    assert "<title>Holiday Homes</title>" in response.content.decode()
+
+
+def test_404_page(client):
+    response = client.get("/url-inexistante/")
+    assert response.status_code == 404

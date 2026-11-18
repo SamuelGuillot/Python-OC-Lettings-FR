@@ -35,7 +35,7 @@ exclude_lines = [
 pytest = "^9.1.1"
 pytest-django = "^4.14.0"
 pytest-cov = "^7.1.0"
-flake8 = "^3.7.0"
+flake8 = "7.0.0"
 
 [project]
 name = "python-oc-lettings-fr"
@@ -60,3 +60,6 @@ dependencies = [
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
