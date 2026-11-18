@@ -20778,9 +20778,9 @@ body {
   background-position: center bottom;
 }
 
-.card-waves .card-body {
+/* .card-waves .card-body {
   background-image: url("../assets/img/backgrounds/bg-waves.svg");
-}
+} */
 
 .card-angles .card-body {
   background-image: url("../assets/img/backgrounds/bg-angles.svg");
