@@ -1,0 +1,61 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+      - '**'
+
+jobs:
+  # Tests et linting (toutes les branches)
+  build-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install poetry==2.1.4
+      - run: poetry install --no-root
+      - name: Lint
+        continue-on-error: true  # BEKAREFUL
+        run: poetry run flake8
+      - name: Tests & Coverage
+        env:
+          SECRET_KEY: test-secret-key
+          DEBUG: 'True'
+        run: poetry run pytest --cov=. --cov-fail-under=80
+
+  # Docker
+  docker:
+    name: Build & Push Docker Image
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      - uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/oc-lettings:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/oc-lettings:${{ steps.vars.outputs.sha_short }}
+
+  # Déploiement Render
+  deploy:
+    name: Deploy to Render
+    runs-on: ubuntu-latest
+    needs: docker
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Trigger Render Deploy Hook
+        run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"

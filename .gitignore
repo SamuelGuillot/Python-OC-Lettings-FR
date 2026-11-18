@@ -22,3 +22,10 @@ flake8_report.txt
 *.sqlite3.2
 
 .coverage
+
+htmlcov/
+
+
+*.sqlite3.empty
+*.sqlite3.empty.*
+data_dump.json
