@@ -20,9 +20,9 @@ RUN poetry install --only main --no-root
 # Copier le reste du code
 COPY . .
 
-# Rendre build.sh exécutable et l'exécuter pendant le build
-RUN chmod +x build.sh
-RUN ./build.sh
+# # Rendre build.sh exécutable et l'exécuter pendant le build
+# RUN chmod +x build.sh
+# RUN ./build.sh
 
 # Utilisateur non-root
 RUN useradd -m appuser && chown -R appuser:appuser /app

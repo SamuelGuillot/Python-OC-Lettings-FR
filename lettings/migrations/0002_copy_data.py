@@ -24,12 +24,12 @@ def copy_data(apps, schema_editor):
         ))
         if len(buffer) >= BATCH_SIZE:
             NewAddress.objects.bulk_create(
-                buffer, batch_size=BATCH_SIZE, ignore_conflicts=True,
+                buffer, batch_size=BATCH_SIZE,
             )
             buffer.clear()
     if buffer:
         NewAddress.objects.bulk_create(
-            buffer, batch_size=BATCH_SIZE, ignore_conflicts=True,
+            buffer, batch_size=BATCH_SIZE,
         )
         buffer.clear()
 
@@ -41,12 +41,12 @@ def copy_data(apps, schema_editor):
         ))
         if len(buffer) >= BATCH_SIZE:
             NewLetting.objects.bulk_create(
-                buffer, batch_size=BATCH_SIZE, ignore_conflicts=True,
+                buffer, batch_size=BATCH_SIZE,
             )
             buffer.clear()
     if buffer:
         NewLetting.objects.bulk_create(
-            buffer, batch_size=BATCH_SIZE, ignore_conflicts=True,
+            buffer, batch_size=BATCH_SIZE,
         )
 
 

@@ -1,19 +1,36 @@
 __pycache__/
 *.pyc
 
+.venv/
 venv/
 env/
 
 .git/
-.vscode/
-.idea/
+.gitignore
+
 
 .env
 .env.*
 
 .pytest_cache/
-.flake8_cache/
+.coverage
+.coverage.*
+htmlcov/
 flake8_report.txt
 
-oc-lettings-site.sqlite3.bak
-oc-lettings-site.sqlite3.2
+*.sqlite3
+*.sqlite3.*
+db.sqlite3
+
+staticfiles/
+
+
+docs/
+
+
+.github/
+
+
+Dockerfile
+docker-compose.yml
+.dockerignore

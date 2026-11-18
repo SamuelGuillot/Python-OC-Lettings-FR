@@ -19,6 +19,9 @@ omit = [
     "*/settings.py",
 ]
 
+[tool.poetry]
+package-mode = false
+
 [tool.coverage.report]
 exclude_lines = [
     "pragma: no cover",
@@ -48,7 +51,9 @@ dependencies = [
     "gunicorn (>=23.0.0,<24.0.0)",
     "sentry-sdk[django] (>=2.20.0,<3.0.0)",
     "whitenoise (>=6.7.0,<7.0.0)",
-    "dj-database-url (>=2.3.0,<3.0.0)"
+    "dj-database-url (>=2.3.0,<3.0.0)",
+    "psycopg[binary] (>=3.3.9,<4.0.0)",
+    "python-dotenv (>=1.2.4,<2.0.0)"
 ]
 
 
