@@ -32,4 +32,4 @@ USER appuser
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "python manage.py migrate --noinput && (python manage.py shell -c 'from lettings.models import Letting; import sys; sys.exit(0 if Letting.objects.exists() else 1)' || python manage.py loaddata fixtures.json) && gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:$PORT"]
+CMD ["sh", "-c", "python manage.py migrate --noinput &&  gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:$PORT"]
