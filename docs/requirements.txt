@@ -1,2 +1,5 @@
 sphinx
 sphinx-rtd-theme
+Django
+dj-database-url
+python-dotenv
