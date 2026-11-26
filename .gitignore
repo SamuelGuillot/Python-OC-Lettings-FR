@@ -29,3 +29,5 @@ htmlcov/
 *.sqlite3.empty
 *.sqlite3.empty.*
 data_dump.json
+
+docs/_build/
