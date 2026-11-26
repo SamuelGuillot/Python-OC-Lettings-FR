@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
+    """Profil utilisateur lié à un compte Django."""
+
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,

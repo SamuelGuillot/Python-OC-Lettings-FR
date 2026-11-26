@@ -8,6 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 def index(request):
+    """Affiche la liste de tous les profils."""
     profiles_list = Profile.objects.all()
     logger.info(
         f"Consultation de la liste des profils ({profiles_list.count()})"
@@ -17,6 +18,7 @@ def index(request):
 
 
 def profile(request, username):
+    """Affiche le détail du profil correspondant au username donné."""
     try:
         profile = Profile.objects.get(user__username=username)
         logger.info(f"Consultation du profil : {username}")

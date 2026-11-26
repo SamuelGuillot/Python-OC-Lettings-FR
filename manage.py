@@ -1,8 +1,11 @@
+"""Point d'entrée en ligne de commande pour les tâches d'administration Django."""
+
 import os
 import sys
 
 
 def main():
+    """Exécute une commande d'administration Django."""
     os.environ.setdefault(
         "DJANGO_SETTINGS_MODULE", "oc_lettings_site.settings"
     )
